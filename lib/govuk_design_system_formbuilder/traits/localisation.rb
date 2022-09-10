@@ -25,10 +25,12 @@ module GOVUKDesignSystemFormBuilder
       end
 
       def schema_path
+        base_object_name = @object_name.to_s.scan(%r{\w+}).join(".")
+
         if @value.present?
-          [@object_name, "#{@attribute_name}_options", @value]
+          [base_object_name, "#{@attribute_name}_options", @value]
         else
-          [@object_name, @attribute_name]
+          [base_object_name, @attribute_name]
         end
       end
 

@@ -63,6 +63,7 @@ describe GOVUKDesignSystemFormBuilder::FormBuilder do
   end
 
   it_behaves_like 'a field that supports setting the label via localisation'
+  it_behaves_like 'a nested field that supports setting the label via localisation'
   it_behaves_like 'a field that supports setting the label caption via localisation'
   it_behaves_like 'a field that supports setting the hint via localisation'
 
@@ -200,4 +201,21 @@ describe GOVUKDesignSystemFormBuilder::FormBuilder do
       end
     end
   end
+
+  # context "when the field is nested" do
+  #   subject do
+  #     builder.fields_for(:address, builder: described_class) do |af|
+  #       af.govuk_text_area(:number_and_street)
+  #     end
+  #   end
+  #
+  #   let(:localisations) { { en: YAML.load_file('spec/support/locales/sample.en.yaml') } }
+  #   let(:expected_text) { I18n.translate("number_and_street", scope: "helpers.label.person.address") }
+  #
+  #   specify "finds the correct nested localisation" do
+  #     with_localisations(localisations) do
+  #       expect(subject).to have_tag("label", text: expected_text, with: { class: "govuk-label" })
+  #     end
+  #   end
+  # end
 end

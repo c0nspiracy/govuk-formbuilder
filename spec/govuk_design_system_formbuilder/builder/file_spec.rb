@@ -46,6 +46,7 @@ describe GOVUKDesignSystemFormBuilder::FormBuilder do
     it_behaves_like 'a field that supports setting the label via localisation'
     it_behaves_like 'a field that supports setting the label caption via localisation'
     it_behaves_like 'a field that supports setting the hint via localisation'
+    it_behaves_like 'a nested field that supports setting the label via localisation'
 
     it_behaves_like 'a field that allows extra HTML attributes to be set' do
       let(:described_element) { 'input' }
