@@ -1,6 +1,8 @@
 module GOVUKDesignSystemFormBuilder
   module Traits
     module Localisation
+      BASE_NAME_REGEXP = %r{[[:alpha:]](?:\w*)}.freeze
+
     private
 
       def localised_text(context)
@@ -25,7 +27,7 @@ module GOVUKDesignSystemFormBuilder
       end
 
       def schema_path
-        base_object_name = @object_name.to_s.scan(%r{\w+}).join(".")
+        base_object_name = @object_name.to_s.scan(BASE_NAME_REGEXP).join(".")
 
         if @value.present?
           [base_object_name, "#{@attribute_name}_options", @value]
